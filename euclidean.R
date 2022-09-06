@@ -1,0 +1,3 @@
+euclidean <- function(a,b){
+  
+}
