@@ -1,11 +1,15 @@
-Package: AdvancedRLab03
+Package: advancedRLab03
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
-Encoding: UTF-8
-LazyData: true
+Title: Package containing euclidean and dijkstra algorithm.
+Version: 1.0
+Date: 2022-09-08
+Author: c(
+  person("Jonathan",email="jondo380@student.liu.se",role=c("aut","cre")),
+  person("Yannik",email="yanst838@student.liu.se",role=c("aut","cre"))
+  )
+Description: This package contains a function which takes two integer values
+  as its input and returns the greatest common divisor of the two.
+  It also contains a function which takes a graph and a starting point as its
+  inputs and calculates the shortest distances to all other nodes in the graph.
+License: None
+RoxygenNote: 7.2.1
