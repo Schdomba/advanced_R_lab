@@ -1,4 +1,34 @@
 #' @title Implementation of the Dijkstra Algorithm
+#' 
+#' @description The function \code{dijkstra} takes a graph and an initial node
+#'     and calculates the shortest distance from the initial to all other nodes.
+#'
+#' @param graph A \code{data.frame} containing three variables (\code{v1}, 
+#'     \code{v2} and \code{w}).
+#'     Where \code{v1} and \code{v2} contain nodes and \code{w} contains the 
+#'     distances between each of the \code{v1} and \code{v2} nodes.
+#' @param init_node A numeric scalar representing the selected node from which
+#'     the distances to all other nodes are being calculated. \code{init_node}
+#'     has to exist in the graph.
+#'
+#' @return A vector containing the shortest distance from the initial to all
+#'     other nodes.
+#'     
+#' @export
+#' 
+#' @examples 
+#' wiki_graph <-
+#' data.frame(v1=c(1,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,6),
+#'           v2=c(2,3,6,1,3,4,1,2,4,6,2,3,5,4,6,1,3,5),
+#'           w=c(7,9,14,7,10,15,9,10,11,2,15,11,6,6,9,14,2,9))
+#' dijkstra(wiki_graph, 1)
+#' dijkstra(wiki_graph, 3)
+#' 
+#' 
+#' @references{
+#'  \url{https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}
+#'  }
+#TODO: get references working
 
 #graph is a data.frame with v1, v2 and w
 #init node is numeric scalar that exists in the graph
