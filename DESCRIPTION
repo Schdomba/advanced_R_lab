@@ -11,6 +11,6 @@ Description: This package contains a function which takes two integer values
   inputs and calculates the shortest distances to all other nodes in the graph.
 License: GPL-3 + file LICENSE
 RoxygenNote: 7.2.1
-Depends: R (>= 4.2.1)
+Depends: R (>= 4.2.0)
 Suggests: testthat (>= 3.0.0)
 Config/testthat/edition: 3
