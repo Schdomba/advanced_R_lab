@@ -19,6 +19,7 @@
 #' @references \url{https://en.wikipedia.org/wiki/Euclidean_algorithm}
 
 euclidean <- function(a,b){
+  stopifnot(length(a)==1,length(b)==1,is.numeric(a),is.numeric(b))
   while(b != 0){
     temp <- b
     b <- a %% b
