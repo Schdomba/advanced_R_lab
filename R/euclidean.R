@@ -17,8 +17,6 @@
 #' 
 #' 
 #' @references \url{https://en.wikipedia.org/wiki/Euclidean_algorithm}
-#TODO: get references working
-
 
 euclidean <- function(a,b){
   while(b != 0){

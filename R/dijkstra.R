@@ -28,11 +28,11 @@
 #' @references{
 #'  \url{https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}
 #'  }
-#TODO: get references working
+
 
 #graph is a data.frame with v1, v2 and w
 #init node is numeric scalar that exists in the graph
-#return list of distances between inital node and remaining nodes
+#return list of distances between initial node and remaining nodes
 dijkstra <- function(graph, init_node){
   stopifnot(is.numeric(init_node), is.atomic(init_node))
   stopifnot(is.data.frame(graph),ncol(graph)==3)
@@ -51,18 +51,15 @@ dijkstra <- function(graph, init_node){
   #create a matrix for the visited nodes with the same dimensions
   dimensions <- dim(unvisited)
   visited <- matrix(ncol=dimensions[2], nrow=dimensions[1])
-  #print("empty visited matrix:")
-  #print(visited)
   
   #initialize current node with init_node
   curr_node <- init_node
+  
   #set last distance to 0
   curr_dist <- 0
   
   #"visit" all nodes
-  while(FALSE %in% is.na(unvisited)){ #kinda hacky, maybe change exit condition?
-    #print("current node:")
-    #print(curr_node)
+  while(any(!is.na(unvisited))){ 
     # get the indices of all occurences of our current node in v1
     vertex_indices <- graph$v1 == curr_node
     # use these indices to get all nearest neighbours
@@ -76,31 +73,22 @@ dijkstra <- function(graph, init_node){
     # set visited neighbours to NA NA
     neighbours[neighbours[,1] %in% visited[,1],] <- c(NA,NA)
     
-    #print("neighbours:")
-    #print(neighbours)
-    
     #calculate and update distances
     for(node_num in neighbours[!is.na(neighbours[,1]),1]){
-      #print(neighbours[node_num,2] + curr_dist)
+      
       if(unvisited[node_num,2] > (neighbours[node_num,2] + curr_dist)){
         unvisited[node_num,2] <- neighbours[node_num,2] + curr_dist
         unvisited[node_num,3] <- curr_node
       }
     }
     
-    #print("unvisited with distances:")
-    #print(unvisited)
-    
     visited [curr_node,]<- unvisited[curr_node,]
-    #print("visited:")
-    #print(visited)
     unvisited [curr_node,]<- c(NA,NA,NA)
-    #print("unvisited:")
-    #print(unvisited)
+    
     #change current node to nearest vertex
-    curr_node <- which.min(unvisited[,2])#TODO:change calculation
+    curr_node <- which.min(unvisited[,2])
     curr_dist <- unvisited[curr_node,2]
-    #print(curr_dist)
+    
   }
   return(c(visited[,2]))
 }
